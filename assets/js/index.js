@@ -285,7 +285,18 @@ function initFormSubmission() {
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      alert('شكراً! تم إرسال رسالتك بنجاح. (Demo)');
+      Swal.fire({
+        title: 'تم إرسال رسالتك بنجاح!',
+        html: `شكراً <strong>${name}</strong>،<br>هرد عليك في أقرب وقت ممكن.`,
+        icon: 'success',
+        confirmButtonText: 'تمام',
+        confirmButtonColor: '#6366f1',
+        background: document.documentElement.classList.contains('dark') ? '#1e2937' : '#ffffff',
+        color: document.documentElement.classList.contains('dark') ? '#e2e8f0' : '#1e2937',
+        showClass: {
+          popup: 'animate__animated animate__bounceIn'
+        }
+      });
       contactForm.reset();
     });
   }
